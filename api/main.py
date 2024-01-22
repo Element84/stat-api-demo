@@ -1,5 +1,6 @@
 import os
 from datetime import datetime, timedelta
+from logging import basicConfig
 from functools import wraps
 from typing import Tuple
 
@@ -18,6 +19,10 @@ from geojson_pydantic import Point
 app = FastAPI(title="Tasking API")
 
 DEFAULT_BACKEND = os.environ.get("DEFAULT_BACKEND", "earthsearch")
+
+log_level = os.getenv("LOG_LEVEL")
+if log_level is not None:
+    basicConfig(level=log_level.upper())
 
 
 def throw(func):
