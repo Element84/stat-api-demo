@@ -4,6 +4,7 @@ from api.backends.earthsearch_backend import EarthSearchBackend
 from api.backends.fake_backend import FakeBackend
 from api.backends.planet_backend import PlanetBackend
 from api.backends.umbra_backend import UmbraBackend
+from api.backends.satvu_backend import SatVuBackend
 
 BACKENDS: dict[str, Backend] = {
     "fake": FakeBackend(),  # type: ignore
@@ -11,4 +12,5 @@ BACKENDS: dict[str, Backend] = {
     "blacksky": BlackskyBackend(),  # type: ignore
     "planet": PlanetBackend(),  # type: ignore
     "umbra": UmbraBackend(),  # type: ignore
+    "satvu": SatVuBackend(),
 }

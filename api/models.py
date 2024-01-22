@@ -143,6 +143,7 @@ class Opportunity(OpportunityProperties):
 
     def to_feature(self) -> OpportunityFeature:
         return OpportunityFeature(
+            type="Feature",
             id=self.id,
             geometry=self.geometry,
             properties=OpportunityProperties(
@@ -172,4 +173,4 @@ class OpportunityCollection(FeatureCollection):  # type: ignore
     def from_opportunities(
         cls, opportunities: list[Opportunity]
     ) -> "OpportunityCollection":
-        return cls(features=[o.to_feature() for o in opportunities])
+        return cls(type="FeatureCollection", features=[o.to_feature() for o in opportunities])
